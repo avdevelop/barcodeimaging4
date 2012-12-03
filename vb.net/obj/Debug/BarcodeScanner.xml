@@ -1,0 +1,320 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+BarcodeScanner
+</name>
+</assembly>
+<members>
+<member name="M:BarcodeDetection.BarcodeDetection">
+	<summary>
+ Default constructor is required for COM.
+ </summary>
+</member><member name="M:BarcodeDetection.FullScanPage(System.Object,System.Int32,BarcodeScanner.BarcodeType,System.Boolean)">
+	<summary>
+ FullScanPage does a full scan of the active frame in the passed bitmap. This function
+ will scan both vertically and horizontally. 
+ </summary>
+	<remarks>
+ By default FullScanPage will attempt to detect barcodes of all supported types. Assign 
+ a subset to FullScanBarcodeTypes if your application does not need this.
+ 
+ Use ScanPage instead of FullScanPage if you want to scan in one direction only, 
+ or only for specific barcode types.
+ </remarks>
+	<param name="bmp">Input bitmap. Pass the bitmap through COM as an IPictureDisp,
+ e.g., the Picture property of a Picture or Image control in VB6.</param>
+	<param name="numscans">Number of passes that must be made over the page. 
+ 50 - 100 usually gives a good result.</param>
+	<param name="types">Barcode types. Pass BarcodeType.All, or you can specify a list of types,
+ e.g., BarcodeType.Code39 | BarcodeType.EAN</param>
+	<param name="UseZones">Set UseBarcodeZones to false if you do not need this feature.
+ Barcode regions improve detection of multiple barcodes on one scan line,
+ but have a significant performance impact.</param>
+	<returns>Pipe-separated list of detected barcodes, empty string if none</returns>
+</member><member name="M:BarcodeDetection.ScanPage(System.Object,System.Int32,BarcodeScanner.ScanDirection,BarcodeScanner.BarcodeType,System.Boolean)">
+	<summary>
+ Scans the active frame in the passed bitmap for barcodes.
+ </summary>
+	<param name="bmp">Input bitmap</param>
+	<param name="numscans">Number of passes that must be made over the page. 
+ 50 - 100 usually gives a good result.</param>
+	<param name="direction">Scan direction</param>
+	<param name="types">Barcode types. Pass BarcodeType.All, or you can specify a list of types,
+ e.g., BarcodeType.Code39 | BarcodeType.EAN</param>
+	<param name="UseZones">Set UseZones to false if you do not need this feature.
+ Barcode regions improve detection of multiple barcodes on one scan line,
+ but have a significant performance impact.</param>
+	<returns>Pipe-separated list of detected barcodes, empty string if none</returns>
+</member><member name="M:BarcodeDetection.GetImageFromClipboard">
+	<summary>
+ Helper function to get image from clipboard. 
+ </summary>
+	<returns>Image from clipboard, or Nothing if the clipboard does not contain an image.</returns>
+	<remarks>Used in the VBA code of the MS Word sample COMTest.doc</remarks>
+</member><member name="M:BarcodeDetection.ConvertToImage(System.Object)">
+	<summary>
+ Attempts to convert the passed object to a .Net image object.
+ </summary>
+	<param name="oBmp">Input object</param>
+	<returns>Converted object</returns>
+</member><member name="T:BarcodeDetection">
+	<summary>
+ COM wrapper for BarcodeScanner class.
+ See http://www.codeproject.com/KB/graphics/BarcodeImaging3.aspx
+ 
+ Licensed under The Code Project Open License (CPOL). 
+ See http://www.codeproject.com/info/cpol10.aspx
+ </summary>
+</member><member name="F:BarcodeScanner.BarcodeType.None">
+	<summary>Not specified</summary>
+</member><member name="F:BarcodeScanner.BarcodeType.Code39">
+	<summary>Code39</summary>
+</member><member name="F:BarcodeScanner.BarcodeType.EAN">
+	<summary>EAN/UPC</summary>
+</member><member name="F:BarcodeScanner.BarcodeType.Code128">
+	<summary>Code128</summary>
+</member><member name="F:BarcodeScanner.BarcodeType.All">
+	<summary>Use BarcodeType.All for all supported types</summary>
+</member><member name="T:BarcodeScanner.BarcodeType">
+	<summary>
+ Used to specify what barcode type(s) to detect.
+ </summary>
+</member><member name="F:BarcodeScanner.ScanDirection.Vertical">
+	<summary>Scan top-to-bottom</summary>
+</member><member name="F:BarcodeScanner.ScanDirection.Horizontal">
+	<summary>Scan left-to-right</summary>
+</member><member name="T:BarcodeScanner.ScanDirection">
+	<summary>
+ Used to specify whether to scan a page in vertical direction,
+ horizontally, or both.
+ </summary>
+</member><member name="F:BarcodeScanner.histogramResult.histogram">
+	<summary>Averaged image brightness values over one scanned band</summary>
+</member><member name="F:BarcodeScanner.histogramResult.min">
+	<summary>Minimum brightness (darkest)</summary>
+</member><member name="F:BarcodeScanner.histogramResult.max">
+	<summary>Maximum brightness (lightest)</summary>
+</member><member name="T:BarcodeScanner.histogramResult">
+	<summary>
+ Structure used to return the processed data from an image
+ </summary>
+</member><member name="P:BarcodeScanner.UseBarcodeZones">
+	<summary>
+ Set UseBarcodeZones to false if you do not need this feature.
+ Barcode regions improve detection of multiple barcodes on one scan line,
+ but have a significant performance impact.
+ </summary>
+</member><member name="M:BarcodeScanner.FullScanPage(System.Collections.ArrayList@,System.Drawing.Bitmap,System.Int32,BarcodeScanner.BarcodeType)">
+	<summary>
+ FullScanPage does a full scan of the active frame in the passed bitmap. This function
+ will scan both vertically and horizontally. 
+ </summary>
+	<remarks>
+ 
+ Use ScanPage instead of FullScanPage if you want to scan in one direction only, 
+ or only for specific barcode types.
+ 
+ For a multi-page tiff only one page is scanned. By default, the first page is used, but
+ you can scan other pages by calling bmp.SelectActiveFrame(FrameDimension.Page, pagenumber)
+ before calling FullScanPage.
+ </remarks>
+	<param name="CodesRead">Will contain detected barcode strings when the function returns</param>
+	<param name="bmp">Input bitmap</param>
+	<param name="numscans">Number of passes that must be made over the page. 
+ 50 - 100 usually gives a good result.</param>
+</member><member name="M:BarcodeScanner.ScanPage(System.Collections.ArrayList@,System.Drawing.Bitmap,System.Int32,BarcodeScanner.ScanDirection,BarcodeScanner.BarcodeType)">
+	<summary>
+ Scans the active frame in the passed bitmap for barcodes.
+ </summary>
+	<param name="CodesRead">Will contain detected barcode strings when the function returns</param>
+	<param name="bmp">Input bitmap</param>
+	<param name="numscans">Number of passes that must be made over the page. 
+ 50 - 100 usually gives a good result.</param>
+	<param name="direction">Scan direction</param>
+	<param name="types">Barcode types. Pass BarcodeType.All, or you can specify a list of types,
+ e.g., BarcodeType.Code39 | BarcodeType.EAN</param>
+</member><member name="M:BarcodeScanner.ReadBarcodes(System.Drawing.Bitmap,System.Int32,System.Int32,BarcodeScanner.ScanDirection,BarcodeScanner.BarcodeType)">
+	<summary>
+ Scans one band in the passed bitmap for barcodes. 
+ </summary>
+	<param name="bmp">Input bitmap</param>
+	<param name="start">Start coordinate</param>
+	<param name="end">End coordinate</param>
+	<param name="direction">
+ ScanDirection.Vertical: a horizontal band across the page will be examined 
+ and start,end should be valid y-coordinates.
+ ScanDirection.Horizontal: a vertical band across the page will be examined 
+ and start,end should be valid x-coordinates.
+ </param>
+	<param name="types">Barcode types to be found</param>
+	<returns>Pipe-separated list of barcodes, empty string if none were detected</returns>
+</member><member name="M:BarcodeScanner.GetBarPatterns(BarcodeScanner.histogramResult@,System.Text.StringBuilder@,System.Text.StringBuilder@)">
+	<summary>
+ Scans for patterns of bars and returns them encoded as strings in the passed
+ string builder parameters.
+ </summary>
+	<param name="hist">Input data containing picture information for the scan line</param>
+	<param name="sbCode39Pattern">Returns string containing "w" for wide bars and "n" for narrow bars</param>
+	<param name="sbEANPattern">Returns string with numbers designating relative bar widths compared to 
+ narrowest bar: "1" to "4" are valid widths that can be present in an EAN barcode</param>
+	<remarks>In both output strings, "|"-characters will be inserted to indicate gaps 
+ in the input data.</remarks>
+</member><member name="M:BarcodeScanner.IsWideBar(System.Int32,System.Single,System.Single)">
+	<summary>
+ Returns true if the bar appears to be "wide".
+ </summary>
+	<param name="iBarWidth">measured bar width in pixels</param>
+	<param name="fNarrowBarWidth">average narrow bar width</param>
+	<param name="fWiderBarWidth">average width of next wider bar</param>
+	<returns></returns>
+</member><member name="M:BarcodeScanner.ValidBars(BarcodeScanner.histogramResult@)">
+	<summary>
+ Checks if dark and light narrow bar widths are in agreement.
+ </summary>
+	<param name="hist">barcode data</param>
+	<returns>true if barcode data is valid</returns>
+</member><member name="M:BarcodeScanner.ReversePattern(System.Text.StringBuilder)">
+	<summary>
+ Used by ReadBarcodes to reverse a bar pattern. 
+ </summary>
+	<param name="sbPattern">String builder containing a bar pattern string</param>
+	<returns>String builder containing the reverse of the input string</returns>
+</member><member name="M:BarcodeScanner.verticalHistogram(System.Drawing.Bitmap,System.Int32,System.Int32,BarcodeScanner.ScanDirection)">
+	<summary>
+ Vertical histogram of an image
+ </summary>
+	<param name="bmp">Bitmap</param>
+	<param name="start">Start coordinate of band to be scanned</param>
+	<param name="end">End coordinate of band to be scanned</param>
+	<param name="direction">
+ ScanDirection.Vertical: start and end denote y-coordinates.
+ ScanDirection.Horizontal: start and end denote x-coordinates.
+ </param>
+	<returns>histogramResult, containing average brightness values across the scan line</returns>
+</member><member name="M:BarcodeScanner.GetBarWidthDistribution(BarcodeScanner.histogramResult@,System.Int32,System.Int32)">
+	<summary>
+ Gets the bar width distribution and calculates narrow bar width over the specified
+ range of the histogramResult. A histogramResult could have multiple ranges, separated 
+ by quiet zones.
+ </summary>
+	<param name="hist">histogramResult data</param>
+	<param name="iStart">start coordinate to be considered</param>
+	<param name="iEnd">end coordinate + 1</param>
+</member><member name="M:BarcodeScanner.FindBarcodeZones(BarcodeScanner.histogramResult@)">
+	<summary>
+ FindBarcodeZones looks for barcode zones in the current band. 
+ We look for white space that is more than GAPFACTOR * narrowbarwidth
+ separating two zones. For narrowbarwidth we take the maximum of the 
+ dark and light narrow bar width.
+ </summary>
+	<param name="hist">Data for current image band</param>
+</member><member name="M:BarcodeScanner.CheckSupportedPixelFormat(System.Drawing.Imaging.PixelFormat)">
+	<summary>
+ Checks if the supplied pixelFormat is supported, returns the default
+ pixel format (PixelFormat.Format24bppRgb) if it isn't supported.
+ </summary>
+	<param name="pixelFormat">Input pixel format</param>
+	<returns>Input pixel format if it is supported, else default.</returns>
+</member><member name="M:BarcodeScanner.getpixelbrightness(System.Drawing.Imaging.BitmapData,System.Drawing.Imaging.PixelFormat,System.Int32,System.Int32)">
+	<summary>
+ Calculates pixel brightness for specified pixel in byte array of locked bitmap rectangle.
+ For RGB  : returns sum of the three color values.
+ For 1bpp : returns 255 for a white pixel, 0 for a black pixel.
+ </summary>
+	<param name="bmd">Bitmap data</param>
+	<param name="pf">Pixel format used in the byte array</param>
+	<param name="x">Horizontal coordinate, relative to upper left corner of locked rectangle</param>
+	<param name="y">Vertical coordinate, relative to upper left corner of locked rectangle</param>
+	<returns></returns>
+</member><member name="M:BarcodeScanner.ParseCode39(System.Text.StringBuilder)">
+	<summary>
+ Parses Code39 barcodes from the input pattern.
+ </summary>
+	<param name="sbPattern">Input pattern, should contain "n"-characters to
+ indicate narrow bars and "w" to indicate wide bars.</param>
+	<returns>Pipe-separated list of barcodes, empty string if none were detected</returns>
+</member><member name="M:BarcodeScanner.ParseCode39Pattern(System.String)">
+	<summary>
+ Parses bar pattern for one Code39 character.
+ </summary>
+	<param name="pattern">Pattern to be examined, should be 9 characters</param>
+	<returns>Detected character or null</returns>
+</member><member name="M:BarcodeScanner.ParseEAN(System.Text.StringBuilder)">
+	<summary>
+ Parses EAN-barcodes from the input pattern.
+ </summary>
+	<param name="sbPattern">Input pattern, should contain characters
+ "1" .. "4" to indicate valid EAN bar widths.</param>
+	<returns>Pipe-separated list of barcodes, empty string if none were detected</returns>
+</member><member name="M:BarcodeScanner.AppendEAN(System.Text.StringBuilder,System.Int32,System.Single)">
+	<summary>
+ Used by GetBarPatterns to derive bar character from bar width.
+ </summary>
+	<param name="sbEAN">Output pattern</param>
+	<param name="nBarWidth">Measured bar width in pixels</param>
+	<param name="fNarrowBarWidth">Narrow bar width in pixels</param>
+</member><member name="M:BarcodeScanner.ParseEANPattern(System.String,System.String,System.Int32)">
+	<summary>
+ Parses the EAN pattern for one digit or separator
+ </summary>
+	<param name="sPattern">Pattern to be parsed</param>
+	<param name="sEANCode">EAN code found so far</param>
+	<param name="iEANSeparators">Number of separators found so far</param>
+	<returns>Detected digit type (L/G/R) and digit, "|" for separator
+ or null if the pattern was not recognized.</returns>
+</member><member name="M:BarcodeScanner.GetEANFirstDigit(System.String@)">
+	<summary>
+ Decodes the L/G-pattern for the left half of the EAN code 
+ to derive the first digit. See table in
+ http://en.wikipedia.org/wiki/European_Article_Number
+ </summary>
+	<param name="sEANPattern">
+ IN: EAN pattern with digits and L/G/R codes.
+ OUT: EAN digits only.
+ </param>
+	<returns>Detected first digit or null.</returns>
+</member><member name="M:BarcodeScanner.CheckEANSupplement(System.String)">
+	<summary>
+ Checks if EAN supplemental code is valid.
+ </summary>
+	<param name="sEANPattern">Parse result</param>
+	<returns>Supplemental code or empty string</returns>
+</member><member name="M:BarcodeScanner.ParseCode128(System.Text.StringBuilder)">
+	<summary>
+ Parses Code128 barcodes.
+ </summary>
+	<param name="sbPattern">Input pattern, should contain characters
+ "1" .. "4" to indicate valid bar widths.</param>
+	<returns>Pipe-separated list of barcodes, empty string if none were detected</returns>
+</member><member name="M:BarcodeScanner.ParseCode128Pattern(System.String,System.String@,System.UInt32@,System.Char@,System.Int32@)">
+	<summary>
+ Parses the Code128 pattern for one barcode character.
+ </summary>
+	<param name="sPattern">Pattern to be parsed, should be 6 characters</param>
+	<param name="sResult">Resulting barcode up to current character</param>
+	<param name="uCheckSum">Checksum up to current character</param>
+	<param name="cCodePage">Current code page</param>
+	<param name="iCodes">Count of barcode characters already parsed (needed for checksum)</param>
+	<returns>
+ CODE128STOP: end of barcode detected, barcode recognized.
+          -2: end of barcode, recognition failed.
+          -1: unrecognized pattern.
+       other: code 128 character index
+ </returns>
+</member><member name="T:BarcodeScanner">
+	<summary>
+ VB.Net translation of BarcodeImaging class provided by Alessandro Gubbiotti (princes@tiscali.it).
+ 
+ Translated from the c# class by Berend Engelbrecht (b.engelbrecht@gmail.com).
+ See http://www.codeproject.com/KB/graphics/BarcodeImaging3.aspx
+ 
+ Parts of this class are derived from an earlier code project by James Fitch (qlipoth).
+ Used and published with permission of the original author.
+ 
+ Licensed under The Code Project Open License (CPOL). 
+ See http://www.codeproject.com/info/cpol10.aspx
+ </summary>
+</member>
+</members>
+</doc>

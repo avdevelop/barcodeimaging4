@@ -1,0 +1,14 @@
+C:\Users\CHRISTV\Desktop\BarCodeImaging4\BarcodeTestApp\bin\BarcodeTestApp.exe
+C:\Users\CHRISTV\Desktop\BarCodeImaging4\BarcodeTestApp\bin\BarcodeTestApp.pdb
+C:\Users\CHRISTV\Desktop\BarCodeImaging4\BarcodeTestApp\bin\BarcodeTestApp.xml
+C:\Users\CHRISTV\Desktop\BarCodeImaging4\BarcodeTestApp\bin\BarcodeImaging.dll
+C:\Users\CHRISTV\Desktop\BarCodeImaging4\BarcodeTestApp\bin\BarcodeScanner.dll
+C:\Users\CHRISTV\Desktop\BarCodeImaging4\BarcodeTestApp\bin\BarcodeImaging.pdb
+C:\Users\CHRISTV\Desktop\BarCodeImaging4\BarcodeTestApp\bin\BarcodeScanner.pdb
+C:\Users\CHRISTV\Desktop\BarCodeImaging4\BarcodeTestApp\bin\BarcodeScanner.xml
+C:\Users\CHRISTV\Desktop\BarCodeImaging4\BarcodeTestApp\obj\Debug\BarcodeTestApp.vbprojResolveAssemblyReference.cache
+C:\Users\CHRISTV\Desktop\BarCodeImaging4\BarcodeTestApp\obj\Debug\BarcodeTestApp.Form1.resources
+C:\Users\CHRISTV\Desktop\BarCodeImaging4\BarcodeTestApp\obj\Debug\BarcodeTestApp.vbproj.GenerateResource.Cache
+C:\Users\CHRISTV\Desktop\BarCodeImaging4\BarcodeTestApp\obj\Debug\BarcodeTestApp.exe
+C:\Users\CHRISTV\Desktop\BarCodeImaging4\BarcodeTestApp\obj\Debug\BarcodeTestApp.xml
+C:\Users\CHRISTV\Desktop\BarCodeImaging4\BarcodeTestApp\obj\Debug\BarcodeTestApp.pdb

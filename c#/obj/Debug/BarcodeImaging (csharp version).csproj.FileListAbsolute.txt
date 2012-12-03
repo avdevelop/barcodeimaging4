@@ -1,0 +1,4 @@
+C:\Users\CHRISTV\Desktop\BarCodeImaging4\c#\bin\Debug\BarcodeImaging.dll
+C:\Users\CHRISTV\Desktop\BarCodeImaging4\c#\bin\Debug\BarcodeImaging.pdb
+C:\Users\CHRISTV\Desktop\BarCodeImaging4\c#\obj\Debug\BarcodeImaging.dll
+C:\Users\CHRISTV\Desktop\BarCodeImaging4\c#\obj\Debug\BarcodeImaging.pdb
