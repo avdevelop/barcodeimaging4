@@ -1,0 +1,10 @@
+C:\Users\CHRISTV\Desktop\BarCodeImaging4\BarcodeTest\obj\x86\Debug\BarcodeTest.Form1.resources
+C:\Users\CHRISTV\Desktop\BarCodeImaging4\BarcodeTest\obj\x86\Debug\BarcodeTest.Properties.Resources.resources
+C:\Users\CHRISTV\Desktop\BarCodeImaging4\BarcodeTest\obj\x86\Debug\BarcodeTest.csproj.GenerateResource.Cache
+C:\Users\CHRISTV\Desktop\BarCodeImaging4\BarcodeTest\bin\Debug\BarcodeTest.exe
+C:\Users\CHRISTV\Desktop\BarCodeImaging4\BarcodeTest\bin\Debug\BarcodeTest.pdb
+C:\Users\CHRISTV\Desktop\BarCodeImaging4\BarcodeTest\bin\Debug\BarcodeImaging.dll
+C:\Users\CHRISTV\Desktop\BarCodeImaging4\BarcodeTest\bin\Debug\BarcodeImaging.pdb
+C:\Users\CHRISTV\Desktop\BarCodeImaging4\BarcodeTest\obj\x86\Debug\BarcodeTest.csprojResolveAssemblyReference.cache
+C:\Users\CHRISTV\Desktop\BarCodeImaging4\BarcodeTest\obj\x86\Debug\BarcodeTest.exe
+C:\Users\CHRISTV\Desktop\BarCodeImaging4\BarcodeTest\obj\x86\Debug\BarcodeTest.pdb

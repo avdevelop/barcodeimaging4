@@ -1,7 +1,0 @@
-C:\Users\CHRISTV\Desktop\BarCodeImaging4\vb.net\bin\Debug\BarcodeScanner.dll
-C:\Users\CHRISTV\Desktop\BarCodeImaging4\vb.net\bin\Debug\BarcodeScanner.pdb
-C:\Users\CHRISTV\Desktop\BarCodeImaging4\vb.net\bin\Debug\BarcodeScanner.xml
-C:\Users\CHRISTV\Desktop\BarCodeImaging4\vb.net\bin\Debug\BarcodeScanner.tlb
-C:\Users\CHRISTV\Desktop\BarCodeImaging4\vb.net\obj\Debug\BarcodeScanner.dll
-C:\Users\CHRISTV\Desktop\BarCodeImaging4\vb.net\obj\Debug\BarcodeScanner.xml
-C:\Users\CHRISTV\Desktop\BarCodeImaging4\vb.net\obj\Debug\BarcodeScanner.pdb

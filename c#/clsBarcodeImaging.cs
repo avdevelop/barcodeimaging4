@@ -4,6 +4,7 @@ using System.Drawing.Imaging;
 using System.Text;
 using System.Collections.Specialized;
 using System.Collections;
+using System.Collections.Generic;
 
 /// <summary>
 /// Barcode imaging class by Berend Engelbrecht (b.engelbrecht@gmail.com).
@@ -147,10 +148,12 @@ public class BarcodeImaging
   /// <param name="bmp">Input bitmap</param>
   /// <param name="numscans">Number of passes that must be made over the page. 
   /// 50 - 100 usually gives a good result.</param>
-  public static void FullScanPage(ref System.Collections.ArrayList CodesRead, Bitmap bmp, int numscans)
+  public static List<string> FullScanPage(Bitmap bmp, int numscans)
   {
-    ScanPage(ref CodesRead, bmp, numscans, ScanDirection.Vertical, FullScanBarcodeTypes);
-    ScanPage(ref CodesRead, bmp, numscans, ScanDirection.Horizontal, FullScanBarcodeTypes);
+      List<string> CodesRead = new List<string>();
+      ScanPage(CodesRead, bmp, numscans, ScanDirection.Vertical, FullScanBarcodeTypes);
+      ScanPage(CodesRead, bmp, numscans, ScanDirection.Horizontal, FullScanBarcodeTypes);
+      return CodesRead;
   }
 
   /// <summary>
@@ -163,7 +166,7 @@ public class BarcodeImaging
   /// <param name="direction">Scan direction</param>
   /// <param name="types">Barcode types. Pass BarcodeType.All, or you can specify a list of types,
   /// e.g., BarcodeType.Code39 | BarcodeType.EAN</param>
-  public static void ScanPage(ref System.Collections.ArrayList CodesRead, Bitmap bmp, int numscans, ScanDirection direction, BarcodeType types)
+  public static void ScanPage(List<string> CodesRead, Bitmap bmp, int numscans, ScanDirection direction, BarcodeType types)
   {
     int iHeight, iWidth;
     if (direction == ScanDirection.Horizontal)
